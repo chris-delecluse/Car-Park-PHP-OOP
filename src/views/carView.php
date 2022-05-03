@@ -15,7 +15,7 @@ $carData = array(
     'mileage' => 120000,
     'weight' => 1.6,
     'registrationNumber' => 'BE-bcv-975',
-    'registrationDate' => '29-02-88'
+    'registrationDate' => '1990-08-14'
 );
 
 require "templates/head.php";
@@ -26,9 +26,13 @@ $car = new Car($carData);
 echo "<h2>$car->weight T</h2>";
 echo "<h2>$car->color</h2>";
 
-echo $car->checkAge() . "<br>";
+echo $car->dateDiff() . "<br>";
+
+echo $car->checkFromCountry() . "<br>";
+echo $car->checkMileage() . "<br>";
 
 echo $car->checkCategory() . "<br>";
 echo $car->checkIfAudi() . "<br>";
+
 
 require "templates/footer.php";

@@ -51,21 +51,11 @@ class Car extends CarData implements CarInterface
         }
     }
 
-    public function checkAge() : int
+    public function dateDiff() : int
     {
-        $timeDiff = $this->dateDiff();
+        $yearDiff = date("Y");
+        $carDate = explode("-", $this->registrationDate);
 
-        return ($timeDiff / 365);
-    }
-
-    private function dateDiff() : int
-    {
-        $timeStart = explode("-", $this->registrationDate);
-        $timeNow = date("d-m-y");
-        $timeEnd = explode("-", $timeNow);
-
-        $diff = mktime(0, 0, 0, $timeEnd[1], $timeEnd[2], $timeEnd[0]) - mktime(0, 0, 0, $timeStart[1], $timeStart[2], $timeStart[0]);
-
-        return (($diff / 86400)+1);
+        return $yearDiff - $carDate[0];
     }
 }
