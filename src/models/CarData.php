@@ -3,11 +3,11 @@
 class CarData
 {
     protected string $registrationNumber;
-    protected int $registrationDate;
+    protected string $registrationDate;
     protected string $model;
     protected string $label;
     public string $color;
-    public int $weight;
+    public float $weight;
     public int $mileage;
 
     public function __construct(array $dataCarArr)

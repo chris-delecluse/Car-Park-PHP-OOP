@@ -2,7 +2,7 @@
     "name": "diwaa/car-park-php-oop",
     "autoload": {
         "psr-4": {
-            "Diwaa\\CarParkPhpOop\\": "src/"
+            "Diwaa\\CarParkPhpOop\\": "/"
         }
     },
     "authors": [

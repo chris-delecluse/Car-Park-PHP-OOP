@@ -1,10 +1,15 @@
 <?php
 
+namespace models\classes;
+
+use CarData;
+use CarInterface;
+
 class Car extends CarData implements CarInterface
 {
     public function checkIfAudi() : string
     {
-        if ($this->model == "audi" || $this->model == "Audi" || $this->model == "AUDI") {
+        if ($this->label == "audi" || $this->label == "Audi" || $this->label == "AUDI") {
             return "Reserved";
         } else {
             return "Free";
