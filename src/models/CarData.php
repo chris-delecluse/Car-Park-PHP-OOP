@@ -2,7 +2,7 @@
 
 class CarData
 {
-    protected int $registrationNumber;
+    protected string $registrationNumber;
     protected int $registrationDate;
     protected string $model;
     protected string $label;
