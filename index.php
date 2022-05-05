@@ -2,8 +2,10 @@
 
 require "vendor/autoload.php";
 
+$title = "Home";
+
 $home = "index.php";
-$car = "src/views/carView.php";
+$carPage = "src/views/carView.php";
 
 require "src/views/templates/head.php";
 require "src/views/navigation.php";

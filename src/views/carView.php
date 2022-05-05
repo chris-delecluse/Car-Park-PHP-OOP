@@ -1,38 +1,41 @@
 <?php
-
-use \models\classes\Car;
-require "../models/interfaces/CarInterface.php";
-require "../models/CarData.php";
-require "../models/classes/Car.php";
+require "../controllers/CarController.php";
 
 $home = "../../index.php";
-$car = "carView.php";
+$carPage = "carView.php";
 
-$carData = array(
-    'label' => 'Audi',
-    'model' => 'TT',
-    'color' => 'Green',
-    'mileage' => 120000,
-    'weight' => 1.6,
-    'registrationNumber' => 'BE-bcv-975',
-    'registrationDate' => '1990-08-14'
-);
+$title = "Car";
+$linkCSS = "../../styles/table.css";
 
 require "templates/head.php";
 require "navigation.php";
 
 echo "<h1>Car page !</h1>";
-$car = new Car($carData);
-echo "<h2>$car->weight T</h2>";
-echo "<h2>$car->color</h2>";
 
-echo $car->dateDiff() . "<br>";
+?>
 
-echo $car->checkFromCountry() . "<br>";
-echo $car->checkMileage() . "<br>";
+<table>
+    <thead>
+        <tr>
+            <th>Label</th>
+            <th>State</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Registration date</th>
+            <th>Date difference</th>
+            <th>Mileage</th>
+            <th>Weight</th>
+            <th>Registration plate</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($cars as $item) {
+            echo $item->display();
+        } ?>
+    </tbody>
+</table>
 
-echo $car->checkCategory() . "<br>";
-echo $car->checkIfAudi() . "<br>";
-
+<?php
 
 require "templates/footer.php";

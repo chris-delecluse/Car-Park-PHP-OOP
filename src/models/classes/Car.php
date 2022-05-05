@@ -1,5 +1,4 @@
 <?php
-
 namespace models\classes;
 
 use CarData;
@@ -19,9 +18,9 @@ class Car extends CarData implements CarInterface
     public function checkCategory() : string
     {
         if ($this->weight < 3.50) {
-            return "Commercial";
+            return "Commercial: $this->weight";
         } else {
-            return "Utility";
+            return "Utility: $this->weight";
         }
     }
 
@@ -41,11 +40,11 @@ class Car extends CarData implements CarInterface
     public function checkMileage() : string
     {
         if ($this->mileage < 100000) {
-            return "Low: $this->mileage";
+            return "Low: $this->mileage km";
         } else if ($this->mileage > 100000 && $this->mileage <= 200000) {
-            return "Middle: $this->mileage";
+            return "Middle: $this->mileage km";
         } else if ($this->mileage > 200000) {
-            return "High: $this->mileage";
+            return "High: $this->mileage km";
         } else {
             return "Error, it is a car ?";
         }
@@ -57,5 +56,28 @@ class Car extends CarData implements CarInterface
         $carDate = explode("-", $this->registrationDate);
 
         return $yearDiff - $carDate[0];
+    }
+
+    public function run() : int
+    {
+        $this->mileage += 100000;
+
+        return $this->mileage;
+    }
+
+    public function display() : string
+    {
+        return "<tr>
+                <td>$this->label</td>
+                <td>{$this->checkIfAudi()}</td>
+                <td>$this->model</td>
+                <td>$this->color</td>
+                <td>$this->registrationDate</td>
+                <td>{$this->dateDiff()}</td>
+                <td>{$this->checkMileage()}</td>
+                <td>{$this->checkCategory()} T</td>
+                <td>$this->registrationNumber</td>
+                <td>{$this->checkFromCountry()}</td>
+            </tr>";
     }
 }
